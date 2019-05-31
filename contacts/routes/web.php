@@ -15,4 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/');
+});
+
 Route::resource('contacts', 'ContactController');
+Route::resource('addresses', 'AddressController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

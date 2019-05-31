@@ -16,4 +16,12 @@ class Contact extends Model
         'phone_mobile',
         'phone_work'       
     ];
+
+    /**
+     * Get the addresses for the contact.
+     */
+    public function addresses()
+    {
+        return $this->hasMany('App\Address');
+    }
 }

@@ -4,11 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
     @if(Auth::check())
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">All Contacts</div>
-
-                <div class="card-body">
+                <div style="width:40px; float:right; padding:20px"><a href="{{ route('contacts.create')}}" class="btn btn-primary">Add New</a></div>                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -20,6 +19,8 @@
                         <tr>
                         <td>ID</td>
                         <td>Name</td>
+                        <td>Company</td>
+                        <td>Position</td>
                         <td>Email</td>
 
                         <td colspan = 2>Actions</td>
@@ -30,6 +31,8 @@
                         <tr>
                             <td>{{$contact->id}}</td>
                             <td>{{$contact->first_name}} {{$contact->last_name}}</td>
+                            <td>{{$contact->company}}</td>
+                            <td>{{$contact->position}}</td>
                             <td>{{$contact->email}}</td>
                             <td>
                                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
@@ -53,8 +56,8 @@
         </div>
     @endif
     @if(Auth::guest())
-              <a href="/login" class="btn btn-info"> Login >></a>
-            @endif
+        <a href="/login" class="btn btn-info"> Login >></a>
+    @endif
     </div>
 </div>
 @endsection

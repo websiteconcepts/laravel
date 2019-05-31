@@ -58,7 +58,8 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        return view('contacts.show',compact('contact'));
+        $address = Address::find($contact);
+        return view('contacts.show')->with('address', $address);
     }
 
     /**
@@ -105,6 +106,6 @@ class ContactController extends Controller
         $contact->delete();
   
         return redirect()->route('contacts.index')
-                        ->with('success','Contat deleted successfully');
+                        ->with('success','Contact deleted successfully');
     }
 }

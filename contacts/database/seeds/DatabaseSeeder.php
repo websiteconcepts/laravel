@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('UserTableSeeder');
+        $this->call('ContactTableSeeder');
 
     }
 }
@@ -21,6 +22,17 @@ class UserTableSeeder extends Seeder {
     public function run()
     {
         factory(App\User::class, 10)->create()->each(function ($p) {
+            $p->save();
+        });
+    }
+
+}
+
+class ContactTableSeeder extends Seeder {
+
+    public function run()
+    {
+        factory(App\Contact::class, 100)->create()->each(function ($p) {
             $p->save();
         });
     }
