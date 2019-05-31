@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
     @if(Auth::check())
         <div class="col-md-12">
+        
 
         <form action="/search" method="POST" role="search">
             {{ csrf_field() }}
@@ -17,6 +18,8 @@
                 </span>
             </div>
         </form>
+        @if(isset($details))
+        <p> The Search results for your query <b> {{ $query }} </b> are :</p>
             <div class="card">
                 <div class="card-header">All Contacts</div>
                 <div style="width:40px; float:right; padding:20px"><a href="{{ route('contacts.create')}}" class="btn btn-primary">Add New</a></div>                <div class="card-body">
@@ -39,7 +42,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($contacts as $contact)
+                        @foreach($details as $contact)
                         <tr>
                             <td>{{$contact->id}}</td>
                             <td>{{$contact->first_name}} {{$contact->last_name}}</td>
@@ -63,9 +66,10 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $contacts->links() }}
+                
                 </div>
             </div>
+            @endif
         </div>
     @endif
     @if(Auth::guest())

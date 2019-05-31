@@ -1,5 +1,6 @@
 <?php
-
+use App\Contact;
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,11 @@ Route::resource('addresses', 'AddressController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = Contact::where('first_name','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->orWhere('company','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        return view('contacts.search')->withDetails($user)->withQuery ( $q );
+    else return view ('contacts.search')->withMessage('No Details found. Try to search again !');
+});
