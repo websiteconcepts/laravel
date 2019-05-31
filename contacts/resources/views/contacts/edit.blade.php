@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                         <label for="dob">Date of Birth:</label>
-                        <input type="date" class="form-control" name="dob" value={{ $contact->dob }}/>
+                        <input type="date" class="form-control" name="dob" value={{ date('Y-m-d', strtotime($contact->dob)) }} />
                         </div>
 
                         <div class="form-group">
