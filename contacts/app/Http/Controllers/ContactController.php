@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -12,9 +13,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        
+        $contacts = DB::table('contacts')->paginate(15);
 
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index', ['contacts' => $contacts]);
+
     }
 
     /**
@@ -59,7 +62,13 @@ class ContactController extends Controller
     public function show(Contact $contact)
     {
         $address = Address::find($contact);
-        return view('contacts.show')->with('address', $address);
+        if($address){
+            return view('contacts.show')->with('address', $address);
+        }
+        else {
+            return view('contacts.show');
+        }
+        
     }
 
     /**

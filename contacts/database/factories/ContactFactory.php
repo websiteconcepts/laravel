@@ -24,7 +24,7 @@ $factory->define(Contact::class, function (Faker $faker) {
         'first_name' => $faker->name,
         'last_name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'phone_mobile' => $faker->unique()->randomNumber($nbDigits = 5),
+        'phone_mobile' => $faker->phoneNumber,
         'company' => $faker->randomElement(['CompanyA', 'CompanyB','CompanyC']),
         'position' => $faker->randomElement(['PosA', 'PosB','PosC']),
         'dob' => $faker->dateTimeBetween($startDate = '-100 years', $endDate = 'now')
