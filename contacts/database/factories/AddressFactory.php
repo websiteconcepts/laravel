@@ -19,6 +19,7 @@ use Faker\Generator as Faker;
 $factory->define(Address::class, function (Faker $faker) {
     return [
         'contact_id' => factory('App\Contact')->create()->id,
+        'type' => $faker->randomElement(['Work', 'Postal']),
         'street_address' => $faker->address,
         'suburb' => $faker->word,
         'pincode' => $faker->unique()->randomNumber($nbDigits = 4)

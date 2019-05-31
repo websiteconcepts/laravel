@@ -35,7 +35,7 @@
                         <td>Position</td>
                         <td>Email</td>
 
-                        <td colspan = 2>Actions</td>
+                        <td colspan = 4>Actions</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,6 +46,9 @@
                             <td>{{$contact->company}}</td>
                             <td>{{$contact->position}}</td>
                             <td>{{$contact->email}}</td>
+                            <td>
+                                <a href="/addresses/create/?contact_id={{ $contact->id }}" class="btn btn-primary">[+] Address</a>
+                            </td>
                             <td>
                                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
                             </td>

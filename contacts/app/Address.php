@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
+        'contact_id',
+        'type',
         'street_address',
         'suburb',
         'pincode'       

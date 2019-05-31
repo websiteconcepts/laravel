@@ -26,8 +26,7 @@ class AddressController extends Controller
      */
     public function create()
     {
-        $contacts = Contact::orderBy('id')->get();
-        return view('addresses.create', compact('contacts'));
+        return view('addresses.create', ['contact_id' => intval($_GET['contact_id'])]);
     }
 
     /**
@@ -38,8 +37,17 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'street_address'=>'required',
+
+        ]);
+
         Address::create($request->all());
-        return redirect()->route('addresses.index');
+   
+        return redirect()->route('contacts.index')
+                        ->with('success','Address added successfully.');
+
     }
 
     /**
