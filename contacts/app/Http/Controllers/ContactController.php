@@ -15,7 +15,8 @@ class ContactController extends Controller
     public function index()
     {
         
-        $contacts = DB::table('contacts')->paginate(15);
+        $contacts = DB::table('contacts')->paginate(5);
+
 
         return view('contacts.index', ['contacts' => $contacts]);
 

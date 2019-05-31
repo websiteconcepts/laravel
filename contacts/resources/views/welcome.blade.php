@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-success">
-                <div class="panel-heading">All Contacts</div>
+                <div class="panel-heading"></div>
                     @if(Auth::check())
-                      
+                      <a href="/contacts">All Contacts</a>
                     @endif
             </div>
             @if(Auth::guest())
