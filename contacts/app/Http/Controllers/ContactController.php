@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Contact;
+use App\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,7 +43,9 @@ class ContactController extends Controller
             'first_name'=>'required',
             'last_name'=>'required',
             'company' => 'required',
-            'position' => 'required'
+            'position' => 'required',
+            'phone_mobile' => 'required_without:phone_work',
+            'phone_work' => 'required_without:phone_mobile',
         ]);
 
         Contact::create($request->all());
@@ -61,13 +64,10 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        $address = Address::find($contact);
-        if($address){
-            return view('contacts.show')->with('address', $address);
-        }
-        else {
-            return view('contacts.show');
-        }
+        //$address = Address::find($contact);
+     
+        return view('contacts.show',compact('contact'));
+        
         
     }
 
