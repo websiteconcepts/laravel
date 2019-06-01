@@ -37,16 +37,22 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
+        //if(isset($_GET['contact_id'])){
+            $request->validate([
+                'type' => 'required',
+                'street_address'=>'required',
+                'suburb' => 'required',
+                'pincode' => 'required'
+    
+            ]);
+    
+            Address::create($request->all());
+       
+            return redirect()->route('contacts.index')
+                            ->with('success','Address added successfully.');
+
+       // }
         
-        $request->validate([
-            'street_address'=>'required',
-
-        ]);
-
-        Address::create($request->all());
-   
-        return redirect()->route('contacts.index')
-                        ->with('success','Address added successfully.');
 
     }
 
@@ -67,9 +73,9 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Address $address)
     {
-        //
+        return view('addresses.edit',compact('address'));
     }
 
     /**
@@ -79,9 +85,20 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Address $address)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'street_address'=>'required',
+            'suburb' => 'required',
+            'pincode' => 'required'
+
+        ]);
+  
+        $address->update($request->all());
+  
+        return redirect()->route('addresses.edit', $address->contact_id)
+                        ->with('success','Address updated successfully');
     }
 
     /**

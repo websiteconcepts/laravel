@@ -20,7 +20,7 @@ $factory->define(Address::class, function (Faker $faker) {
     return [
         'contact_id' => factory('App\Contact')->create()->id,
         'type' => $faker->randomElement(['Work', 'Postal']),
-        'street_address' => $faker->address,
+        'street_address' => $faker->unique()->randomNumber($nbDigits = 4).' '.$faker->word.' '.$faker->randomElement(['Street', 'Road', 'Avenue']),
         'suburb' => $faker->word,
         'pincode' => $faker->unique()->randomNumber($nbDigits = 4)
 

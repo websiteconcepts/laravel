@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-success">
-                <div class="panel-heading">All Contacts</div>
+                <div class="panel-heading"></div>
+                <h2>Update Contact</h2>
                     @if(Auth::check())
                     @if ($errors->any())
                     <div class="alert alert-danger">

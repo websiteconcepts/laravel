@@ -43,9 +43,12 @@
                     @foreach ($contact->addresses as $address)
 
                         <div style="border-bottom:1px solid gray"> 
+                        <p> <strong>Type: </strong>{{ $address->type }}</p>
                         <p> {{ $address->street_address }}</p>
                         <p> {{ $address->suburb }}</p>
                         <p> {{ $address->pincode }}</p>
+                        <a href="{{ route('addresses.edit',$address->id)}}"  style="margin:10px" class="btn btn-primary">Edit Address</a>
+                        
                         </div>
 
                     @endforeach
@@ -55,7 +58,9 @@
                     No Address added. 
                    
                     </p>  
+                    
                     @endif
+                    <a href="/addresses/create/?contact_id={{ $contact->id }}" style="margin:10px" class="btn btn-primary">Add New Address</a>
 
 
                     @endif
