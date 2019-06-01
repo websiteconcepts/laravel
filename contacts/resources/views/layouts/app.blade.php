@@ -35,6 +35,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+                   
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -73,6 +74,12 @@
         </nav>
 
         <main class="py-4">
+        @if(Session::has('msg'))
+                        <div class="alert alert-info">
+                            <a class="close" data-dismiss="alert">×</a>
+                            {!!Session::get('msg')!!}
+                        </div>
+                    @endif
             @yield('content')
         </main>
     </div>

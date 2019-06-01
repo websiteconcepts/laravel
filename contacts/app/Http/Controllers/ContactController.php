@@ -60,6 +60,7 @@ class ContactController extends Controller
             'suburb' => $request->get('suburb'),
             'pincode' => $request->get('pincode'),
         ]);
+        \Session::flash('msg', 'Contact added successfully.' );
    
         return redirect()->route('contacts.index')
                         ->with('success','Contact created successfully.');
@@ -110,7 +111,7 @@ class ContactController extends Controller
         ]);
   
         $contact->update($request->all());
-  
+        \Session::flash('msg', 'Contact updated successfully.' );
         return redirect()->route('contacts.index')
                         ->with('success','Contact updated successfully');
     }

@@ -47,7 +47,7 @@ class AddressController extends Controller
             ]);
     
             Address::create($request->all());
-       
+            \Session::flash('msg', 'Address added successfully.' );
             return redirect()->route('contacts.index')
                             ->with('success','Address added successfully.');
 
@@ -96,6 +96,7 @@ class AddressController extends Controller
         ]);
   
         $address->update($request->all());
+        \Session::flash('msg', 'Address updated successfully.' );
   
         return redirect()->route('addresses.edit', $address->contact_id)
                         ->with('success','Address updated successfully');
