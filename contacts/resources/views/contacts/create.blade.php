@@ -55,6 +55,31 @@
                             <input type="text" class="form-control" name="phone_work"/>
                         </div>
 
+
+                        <h3>Address</h3>
+                        <div class="form-group">    
+                            <label for="type">Address Type: *</label> <br />
+                            <input type="radio" name="type" value="work" checked = "checked"> Work<br>
+                            <input type="radio" name="type" value="postal"> Postal<br>
+                        </div>
+
+                        <div class="form-group">    
+                            <label for="street_address">Street Address: *</label>
+                            <input type="text" class="form-control" name="street_address"/>
+                        </div>
+
+                        <div class="form-group">    
+                            <label for="suburt">Suburb: *</label>
+                            <input type="text" class="form-control" name="suburb"/>
+                        </div>
+
+                        <div class="form-group">    
+                            <label for="pincode">Post Code: *</label>
+                            <input type="text" class="form-control" name="pincode"/>
+                        </div>
+
+                    
+
                                     
                         <button type="submit" class="btn btn-primary-outline">Add contact</button>
                     </form>

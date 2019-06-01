@@ -47,9 +47,19 @@ class ContactController extends Controller
             'position' => 'required',
             'phone_mobile' => 'required_without:phone_work',
             'phone_work' => 'required_without:phone_mobile',
+            'street_address' => 'required',
+            'suburb' => 'required',
+            'pincode' => 'required'
         ]);
 
-        Contact::create($request->all());
+        $contact = Contact::create($request->all());
+
+        $contact->addresses()->create([
+            'type' => $request->get('type'),
+            'street_address' => $request->get('street_address'),
+            'suburb' => $request->get('suburb'),
+            'pincode' => $request->get('pincode'),
+        ]);
    
         return redirect()->route('contacts.index')
                         ->with('success','Contact created successfully.');
