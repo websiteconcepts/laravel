@@ -125,7 +125,7 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
-  
+        \Session::flash('msg', 'Contact deleted successfully.' );
         return redirect()->route('contacts.index')
                         ->with('success','Contact deleted successfully');
     }
