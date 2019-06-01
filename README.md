@@ -1,2 +1,2 @@
 # Contact Management
-Demo: http://contacts.appcoder.link/home
+Demo: http://contacts.appcoder.link
