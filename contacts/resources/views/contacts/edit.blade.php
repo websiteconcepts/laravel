@@ -23,38 +23,38 @@
                         <div class="form-group">
 
                             <label for="first_name">First Name:</label>
-                            <input type="text" class="form-control" name="first_name" value={{ $contact->first_name }} />
+                            <input type="text" class="form-control" name="first_name" value='{{ $contact->first_name }}' />
                         </div>
 
                         <div class="form-group">
                             <label for="last_name">Last Name:</label>
-                            <input type="text" class="form-control" name="last_name" value={{ $contact->last_name }} />
+                            <input type="text" class="form-control" name="last_name" value='{{ $contact->last_name }}' />
                         </div>
 
                         <div class="form-group">
                         <label for="dob">Date of Birth:</label>
-                        <input type="date" class="form-control" name="dob" value={{ date('Y-m-d', strtotime($contact->dob)) }} />
+                        <input type="date" class="form-control" name="dob" value='{{ date('Y-m-d', strtotime($contact->dob)) }}' />
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="text" class="form-control" name="email" value={{ $contact->email }} />
+                            <input type="text" class="form-control" name="email" value='{{ $contact->email }}' />
                         </div>
                         <div class="form-group">
                             <label for="city">Company:</label>
-                            <input type="text" class="form-control" name="company" value={{ $contact->company }} />
+                            <input type="text" class="form-control" name="company" value='{{ $contact->company }}' />
                         </div>
                         <div class="form-group">
                             <label for="country">Position:</label>
-                            <input type="text" class="form-control" name="position" value={{ $contact->position }} />
+                            <input type="text" class="form-control" name="position" value='{{ $contact->position }}' />
                         </div>
                         <div class="form-group">
                             <label for="job_title">Mobile Phone:</label>
-                            <input type="text" class="form-control" name="phone_mobile" value={{ $contact->phone_mobile }} />
+                            <input type="text" class="form-control" name="phone_mobile" value='{{ $contact->phone_mobile }}' />
                         </div>
                         <div class="form-group">
                             <label for="job_title">Work Phone:</label>
-                            <input type="text" class="form-control" name="phone_work" value={{ $contact->phone_work }} />
+                            <input type="text" class="form-control" name="phone_work" value='{{ $contact->phone_work }}' />
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>

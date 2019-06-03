@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        
+
+
         $contacts = DB::table('contacts')->paginate(5);
 
 

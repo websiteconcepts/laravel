@@ -34,6 +34,7 @@
                         <td>Company</td>
                         <td>Position</td>
                         <td>Email</td>
+                        <td>Address</td>
 
                         <td colspan = 4>Actions</td>
                         </tr>
@@ -46,6 +47,9 @@
                             <td>{{$contact->company}}</td>
                             <td>{{$contact->position}}</td>
                             <td>{{$contact->email}}</td>
+                            <td>
+                            
+                            </td>
                             <td>
                                 <a href="/addresses/create/?contact_id={{ $contact->id }}" class="btn btn-primary">[+] Address</a>
                             </td>

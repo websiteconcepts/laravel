@@ -48,7 +48,13 @@
                         <p> {{ $address->suburb }}</p>
                         <p> {{ $address->pincode }}</p>
                         <a href="{{ route('addresses.edit',$address->id)}}"  style="margin:10px" class="btn btn-primary">Edit Address</a>
-                        
+                        @if ($contact->addresses->count() > 1)
+                        <form action="{{ route('addresses.destroy', $address->id)}}" method="post" style="margin:10px">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete Address</button>
+                        </form>
+                        @endif
                         </div>
 
                     @endforeach

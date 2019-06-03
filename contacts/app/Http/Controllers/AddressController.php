@@ -46,9 +46,9 @@ class AddressController extends Controller
     
             ]);
     
-            Address::create($request->all());
+            $address = Address::create($request->all());
             \Session::flash('msg', 'Address added successfully.' );
-            return redirect()->route('contacts.index')
+            return redirect()->route('contacts.show', $address->contact_id)
                             ->with('success','Address added successfully.');
 
        // }
@@ -98,8 +98,8 @@ class AddressController extends Controller
         $address->update($request->all());
         \Session::flash('msg', 'Address updated successfully.' );
   
-        return redirect()->route('addresses.edit', $address->contact_id)
-                        ->with('success','Address updated successfully');
+        return redirect()->route('contacts.show', $address->contact_id)
+                            ->with('success','Address updated successfully.');
     }
 
     /**
@@ -108,8 +108,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Address $address)
     {
-        //
+        $address->delete();
+        \Session::flash('msg', 'Address deleted successfully.' );
+        return redirect()->route('contacts.show', $address->contact_id)
+                        ->with('success','Address deleted successfully');
     }
 }
