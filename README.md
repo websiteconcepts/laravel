@@ -12,5 +12,5 @@ Installation Steps:
 3. Create a Database
 4. Update the .env file the code to point to the Database with appropriate credentials
 5. Run the command php artisan migrate which will create all the required tables
-6. Run the command php artisan db:seed which will fill the tables with samples values as mentioned in the specifications
+6. Run the command php artisan db:seed which will fill the tables with samples values
 7. Run the command php artisan serve to open the application
